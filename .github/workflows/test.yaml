@@ -12,11 +12,22 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
         
-      - name: Build
+      - name: Archive
         uses: devbotsxyz/xcode-archive@v1
-        with:
-          archive-path: Jellyfin.xcarchive
-        
+
+      - name: Export
+        uses: devbotsxyz/xcode-export-archive@v1
+
       - name: List
         run: |
-          ls -la Jellyfin.xcarchive
+          ls -l 
+          ls -l ./Export
+                
+#      - name: Setup Jellyfin server
+#        run: |
+#          curl -L -o jellyfin.tar.gz https://repo.jellyfin.org/releases/server/macos/stable-pre/10.8.0-beta2/combined/jellyfin_10.8.0-beta2.tar.gz
+#          tar -xf jellyfin.tar.gz
+#          # move Jellyfin server
+#          mv jellyfin_*/* Jellyfin.xcarchive/Products/Applications/Jellyfin\ Server.app/Contents/MacOS
+#          # move Jellyfin web
+#          mv Jellyfin.xcarchive/Products/Applications/Jellyfin\ Server.app/Contents/MacOS/jellyfin-web Jellyfin.xcarchive/Products/Applications/Jellyfin\ Server.app/Contents/Resources

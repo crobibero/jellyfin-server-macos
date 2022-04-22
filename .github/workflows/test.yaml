@@ -16,7 +16,7 @@ jobs:
         uses: devbotsxyz/xcode-archive@v1
 
       - name: Export
-        uses: devbotsxyz/xcode-export-archive@v1
+        uses: devbotsxyz/xcode-export-archive@v1.0.0
 
       - name: List
         run: |

@@ -1,4 +1,4 @@
-name: Build
+name: Testing
 
 on:
   push:
@@ -17,4 +17,4 @@ jobs:
         
       - name: List
         run: |
-          ls -l ./Export
+          ls -la

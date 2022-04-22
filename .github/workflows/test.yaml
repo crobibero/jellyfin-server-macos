@@ -14,7 +14,9 @@ jobs:
         
       - name: Build
         uses: devbotsxyz/xcode-archive@v1
+        with:
+          archive-path: Jellyfin.xcarchive
         
       - name: List
         run: |
-          ls -la Jellyfin\ Server.xcarchive
+          ls -la Jellyfin.xcarchive

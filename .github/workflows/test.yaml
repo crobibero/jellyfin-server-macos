@@ -24,10 +24,21 @@ jobs:
           # move Jellyfin web
           mv Jellyfin\ Server.xcarchive/Products/Applications/Jellyfin\ Server.app/Contents/MacOS/jellyfin-web Jellyfin\ Server.xcarchive/Products/Applications/Jellyfin\ Server.app/Contents/Resources
 
+      - name: Setup ffmpeg
+        run: |
+          curl -L -o ffmpeg.zip https://evermeet.cx/pub/ffmpeg/ffmpeg-4.4.1.zip
+          unzip ffmpeg.zip
+          mv ffmpeg Jellyfin\ Server.xcarchive/Products/Applications/Jellyfin\ Server.app/Contents/MacOS
+          
+      - name: Setup ffprobe
+        run: |
+          curl -L -o ffprobe.zip https://evermeet.cx/pub/ffprobe/ffprobe-4.4.1.zip
+          unzip ffprobe.zip
+          mv ffprobe Jellyfin\ Server.xcarchive/Products/Applications/Jellyfin\ Server.app/Contents/MacOS          
+
       - name: Export
         uses: devbotsxyz/xcode-export-archive@v1.0.0
 
       - name: List
         run: |
-          ls -l 
           ls -l ./Export

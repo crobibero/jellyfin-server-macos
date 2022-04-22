@@ -17,4 +17,4 @@ jobs:
         
       - name: List
         run: |
-          ls -la
+          ls -la Jellyfin\ Server.xcarchive
